@@ -1,0 +1,47 @@
+.text
+.globl main
+
+main:
+
+	li $v0, 4
+	la $a0, promptx
+	syscall
+	
+	li $v0, 5
+	syscall
+
+	add $t0, $v0, $zero
+
+	li $v0, 4
+	la $a0, prompty
+	syscall
+
+	li $v0, 5
+	syscall
+
+	add $t1, $v0, $zero
+
+		
+	li $t2, 1 #result
+	li $t3, 1 #i
+
+power:
+
+	addi $t4, $t1, 1
+	
+	beq $t3, $t4, print
+
+	mul $t2, $t2, $t0
+	addi $t3, $t3, 1
+
+	j power
+
+print:
+
+	li $v0, 1
+	add $a0, $t2, $zero
+	syscall
+
+.data
+	promptx: .asciiz "Enter a number for x\n"
+	prompty: .asciiz "Enter a number for y\n"

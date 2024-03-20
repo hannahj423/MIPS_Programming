@@ -1,0 +1,153 @@
+.text
+.globl main
+
+main:
+
+	li $v0, 4
+	la $a0, prompt
+	syscall
+
+	li $v0, 5
+	syscall
+
+	li $t0, 1
+	beq $v0, $t0, january
+
+	li $t0, 2
+	beq $v0, $t0, february
+
+	li $t0, 3
+	beq $v0, $t0, march
+
+	li $t0, 4
+	beq $v0, $t0, april
+
+	li $t0, 5
+	beq $v0, $t0, may
+
+	li $t0, 6
+	beq $v0, $t0, june
+
+	li $t0, 7
+	beq $v0, $t0, july
+
+	li $t0, 8
+	beq $v0, $t0, august
+
+	li $t0, 9
+	beq $v0, $t0, september
+
+	li $t0, 10
+	beq $v0, $t0, october
+
+	li $t0, 11
+	beq $v0, $t0, november
+
+	li $t0, 12
+	beq $v0, $t0, december
+
+	j exit
+
+
+december:
+
+	li $v0, 4
+	la $a0, dec
+	syscall
+	j exit
+
+november:
+
+	li $v0, 4
+	la $a0, nov
+	syscall
+	j exit
+
+october:
+
+	li $v0, 4
+	la $a0, oct
+	syscall
+	j exit
+
+september:
+
+	li $v0, 4
+	la $a0, sep
+	syscall
+	j exit
+
+august:
+
+	li $v0, 4
+	la $a0, aug
+	syscall
+	j exit
+
+july:
+
+	li $v0, 4
+	la $a0, jul
+	syscall
+	j exit
+
+june:
+
+	li $v0, 4
+	la $a0, jun
+	syscall
+	j exit
+
+may:
+
+	li $v0, 4
+	la $a0, mays
+	syscall
+	j exit
+
+april:
+
+	li $v0, 4
+	la $a0, apr
+	syscall
+	j exit
+
+march:
+
+	li $v0, 4
+	la $a0, mar
+	syscall
+	j exit
+
+february:
+
+	li $v0, 4
+	la $a0, feb
+	syscall
+	j exit
+
+january:
+
+	li $v0, 4
+	la $a0, jan
+	syscall
+	j exit
+
+exit:
+	li $v0, 10
+	syscall
+
+.data
+	prompt: .asciiz "Pick a number between 1-12\n"
+	jan: .asciiz "January\n"
+	feb: .asciiz "February\n"
+	mar: .asciiz "March\n"
+	apr: .asciiz "April\n"
+	mays: .asciiz "May\n"
+	jun: .asciiz "June\n"
+	jul: .asciiz "July\n"
+	aug: .asciiz "August\n"
+	sep: .asciiz "September\n"
+	oct: .asciiz "October\n"
+	nov: .asciiz "November\n"
+	dec: .asciiz "December\n"
